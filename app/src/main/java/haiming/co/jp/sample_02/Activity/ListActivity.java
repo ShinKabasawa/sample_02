@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import haiming.co.jp.sample_02.Data.SampleData;
@@ -50,17 +52,26 @@ public class ListActivity extends AppCompatActivity {
      * @return リストデータ配列
      */
     public List<SampleData> createDateset(){
-            List<SampleData> dataset = new ArrayList<>();
+        List<SampleData> dataset = new ArrayList<>();
 
-            SampleData data;
-            Resources res = getResources();
-            String[] ta = res.getStringArray(R.array.ken_name_array);
+        SampleData data;
+        Resources res = getResources();
+        String[] ta = res.getStringArray(R.array.ken_name_array);
 
-            for (String name : ta) {
-                data = new SampleData();
-                data.Name = name;
-                dataset.add(data);
-            }
+        ///////////////////////////////////////////////////
+        // string-arrayから取得した配列をArrayListに格納 //
+        ///////////////////////////////////////////////////
+        ArrayList arrayList = new ArrayList();
+        arrayList.addAll(Arrays.asList(ta));
+        ///////////////////////////////////////////////////
+
+        Log.v("ListActivity","arraylist.size =" + arrayList.size());
+
+        for (String name : ta) {
+            data = new SampleData();
+            data.Name = name;
+            dataset.add(data);
+        }
 
         return dataset;
     }
