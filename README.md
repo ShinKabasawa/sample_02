@@ -19,7 +19,7 @@
 ・MainActivity、NextActivity
   
   　　
-    　→画面遷移時のデータ渡し方のプログラム作成例
+    →画面遷移時のデータ渡し方のプログラム作成例
 
 
 ・PermissionActivity
