@@ -4,7 +4,7 @@
 新人研修課題解プログラム例
 
 
-　・FragmentbaseActivity
+・FragmentbaseActivity
  　　　→Fragmentの使用したプログラム作成
 
 
