@@ -6,8 +6,6 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import java.util.Calendar;
-
 import haiming.co.jp.sample_02.Adapter.Weather_5days_ver_Adapter;
 import haiming.co.jp.sample_02.Data.Common;
 import haiming.co.jp.sample_02.R;
@@ -26,11 +24,10 @@ public class Weather_2_ACtivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
 
-        Calendar calender = Calendar.getInstance();
-
-        calender.set(2019,6,21);
-
-
+        /////////////////////////////////////////////////
+        // Calendar calender = Calendar.getInstance(); //
+        // calender.set(2019,6,21);                    //
+        /////////////////////////////////////////////////
 
         LinearLayoutManager llm_1 = new LinearLayoutManager(this);
         llm_1.setSmoothScrollbarEnabled(true);

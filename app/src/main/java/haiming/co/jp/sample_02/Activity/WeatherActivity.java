@@ -183,6 +183,8 @@ public class WeatherActivity extends AppCompatActivity {
 
             ApiManager.getweather_5days getweather_5days = new ApiManager.getweather_5days(url, asyncTaskCallback);
             getweather_5days.execute();
+
+
         }else{
             Toast.makeText(this,"オフラインです",Toast.LENGTH_SHORT).show();
         }

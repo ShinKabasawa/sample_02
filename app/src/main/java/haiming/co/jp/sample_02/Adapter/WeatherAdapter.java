@@ -61,6 +61,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherViewHolder> {
             try(InputStream inputStream0 = new FileInputStream(file) ) {
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream0);
                 weatherViewHolder.icon_view.setImageBitmap(bitmap);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

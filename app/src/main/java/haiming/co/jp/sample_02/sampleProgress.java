@@ -8,7 +8,7 @@ import android.widget.ProgressBar;
 /**
  * 非同期処理
  */
-public class sampleProgress extends AsyncTask <Long, Integer,String>{
+public class sampleProgress extends AsyncTask <Long, Integer, String>{
 
     private Activity activity;
     private ProgressBar p_bar;
@@ -52,4 +52,6 @@ public class sampleProgress extends AsyncTask <Long, Integer,String>{
         //resultは、doInBackgroundからの戻り値
         Log.v("非同期処理","非同期処理終了 : " + result);
     }
+
+
 }
