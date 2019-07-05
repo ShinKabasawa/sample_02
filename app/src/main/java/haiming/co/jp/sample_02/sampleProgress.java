@@ -50,6 +50,7 @@ public class sampleProgress extends AsyncTask <Long, Integer, String>{
     protected void onPostExecute(String result) {
         //処理が終了した
         //resultは、doInBackgroundからの戻り値
+        //Toast.makeText(activity,"非同期処理完了",Toast.LENGTH_SHORT).show();
         Log.v("非同期処理","非同期処理終了 : " + result);
     }
 

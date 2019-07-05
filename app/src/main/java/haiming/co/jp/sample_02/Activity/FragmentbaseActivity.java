@@ -92,23 +92,4 @@ public class FragmentbaseActivity extends AppCompatActivity implements TabHost.O
         }
     }
 
-
-    /*
-     * android:id/tabcontent のダミーコンテンツ
-     */
-//    private static class DummyTabFactory implements TabHost.TabContentFactory {
-//
-//        /* Context */
-//        private final Context mContext;
-//
-//        DummyTabFactory(Context context) {
-//            mContext = context;
-//        }
-//
-//        @Override
-//        public View createTabContent(String tag) {
-//            View v = new View(mContext);
-//            return v;
-//        }
-//    }
 }
