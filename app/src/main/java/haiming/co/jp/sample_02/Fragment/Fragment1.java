@@ -1,7 +1,6 @@
 package haiming.co.jp.sample_02.Fragment;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -93,6 +92,7 @@ public class Fragment1 extends Fragment {
         View layoutInflater = inflater.inflate(R.layout.fragment_fragment1,container,false);
         TextView textView = (TextView)layoutInflater.findViewById(R.id.frag_text);
         textView.setText(mParam1);
+        mListener.onFragmentInteraction("test");
         return layoutInflater;
     }
 
@@ -126,6 +126,6 @@ public class Fragment1 extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(String uri);
     }
 }
