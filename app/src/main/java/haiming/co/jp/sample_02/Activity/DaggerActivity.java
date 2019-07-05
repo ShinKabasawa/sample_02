@@ -21,5 +21,6 @@ public class DaggerActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
+        Log.v("DaggerActivity","onStart");
     }
 }
