@@ -144,7 +144,7 @@ public class WeatherActivity extends AppCompatActivity {
 
                                 Common.arrayList_weather = arrayLists;
 
-                                Intent intent = new Intent(getApplicationContext(), Weather_2_ACtivity.class);
+                                Intent intent = new Intent(getApplicationContext(), Weather_2_Activity.class);
                                 startActivity(intent);
 
                                 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

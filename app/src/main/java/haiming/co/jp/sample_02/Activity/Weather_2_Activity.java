@@ -10,7 +10,7 @@ import haiming.co.jp.sample_02.Adapter.Weather_5days_ver_Adapter;
 import haiming.co.jp.sample_02.Data.Common;
 import haiming.co.jp.sample_02.R;
 
-public class Weather_2_ACtivity extends AppCompatActivity {
+public class Weather_2_Activity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
