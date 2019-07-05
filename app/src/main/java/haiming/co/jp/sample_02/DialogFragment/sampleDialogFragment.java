@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Objects;
@@ -14,9 +13,6 @@ import java.util.Objects;
 import haiming.co.jp.sample_02.Activity.WeatherActivity;
 import haiming.co.jp.sample_02.R;
 
-/**
- *
- */
 public class sampleDialogFragment extends DialogFragment {
 
     @Override
