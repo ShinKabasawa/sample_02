@@ -17,4 +17,9 @@ public class DaggerActivity extends AppCompatActivity {
         GreetingService.GreetingCompornent compornent = haiming.co.jp.sample_02.Interface.DaggerGreetingService_GreetingCompornent.builder().build();
         compornent.greet().print("令和");
     }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+    }
 }
