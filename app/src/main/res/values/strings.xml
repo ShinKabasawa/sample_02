@@ -151,5 +151,8 @@
 
     <string name="api_key">f72a7d92bcc4005a4acb1624c24ab5a9</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>
