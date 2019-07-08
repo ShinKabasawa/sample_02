@@ -92,5 +92,4 @@ public class FragmentbaseActivity extends AppCompatActivity implements TabHost.O
             }
         }
     }
-
 }
