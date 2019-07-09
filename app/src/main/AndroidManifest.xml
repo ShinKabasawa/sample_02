@@ -36,14 +36,15 @@
         </activity>
         <activity android:name=".Activity.DaggerActivity"></activity>
         <activity android:name=".Activity.FragmentbaseActivity">
+
+        </activity>
+        <activity android:name=".Activity.Weather_2_Activity" />
+        <activity android:name=".Activity.WeatherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.Weather_2_Activity" />
-        <activity android:name=".Activity.WeatherActivity" />
         <activity android:name=".Activity.WebapiActivity" />
         <activity android:name=".Activity.PermissionActivity" />
         <activity android:name=".Activity.ProgressActivity" />

@@ -1,5 +1,6 @@
 package haiming.co.jp.sample_02.Adapter;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
@@ -10,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -25,9 +25,11 @@ import haiming.co.jp.sample_02.ViewHolder.WeatherViewHolder;
 public class Weather_5days_hol_Adapter extends RecyclerView.Adapter<WeatherViewHolder> {
     private List<Weather5days_Data> list;
     private WeatherViewHolder weatherViewHolder;
+    private Context context;
 
-    public Weather_5days_hol_Adapter(List<Weather5days_Data> dateset) {
+    public Weather_5days_hol_Adapter(List<Weather5days_Data> dateset, Context context_) {
         list = dateset;
+        context = context_;
     }
 
     @NonNull
@@ -55,17 +57,17 @@ public class Weather_5days_hol_Adapter extends RecyclerView.Adapter<WeatherViewH
 
         File file = new File(path);
 
-        if (file.exists()){
-            try(InputStream inputStream0 = new FileInputStream(file) ) {
-                Bitmap bitmap = BitmapFactory.decodeStream(inputStream0);
+//        if (file.exists()){
+            try(InputStream inputStream = context.getAssets().open(list.get(i).icon + ".png");) {
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                 viewHolder.icon_view.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else{
-            // そのまま
-            // weatherViewHolder.icon_view.setImageDrawable(weather_activity.getResources().getDrawable(R.drawable.ic_launcher_foreground));
-        }
+//        }else{
+//            // そのまま
+//            // weatherViewHolder.icon_view.setImageDrawable(weather_activity.getResources().getDrawable(R.drawable.ic_launcher_foreground));
+//        }
     }
 
     @Override

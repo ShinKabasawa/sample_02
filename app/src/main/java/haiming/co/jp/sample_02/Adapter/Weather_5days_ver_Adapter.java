@@ -47,7 +47,7 @@ public class Weather_5days_ver_Adapter extends RecyclerView.Adapter<Weather_5day
         // 横方向のRecyclerViewのデータをセット
 
         viewHolder.recyclerView.setLayoutManager(new LinearLayoutManager(context_1,LinearLayoutManager.HORIZONTAL,false));
-        Weather_5days_hol_Adapter weather_5days_hol_adapter = new Weather_5days_hol_Adapter(list.get(i));
+        Weather_5days_hol_Adapter weather_5days_hol_adapter = new Weather_5days_hol_Adapter(list.get(i),context_1);
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(context_1, DividerItemDecoration.HORIZONTAL);
         viewHolder.recyclerView.addItemDecoration(itemDecoration);
         viewHolder.recyclerView.swapAdapter(weather_5days_hol_adapter,false);
