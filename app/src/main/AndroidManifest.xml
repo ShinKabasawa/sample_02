@@ -31,17 +31,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.FragmentSampleActivity">
-
-        </activity>
-        <activity android:name=".Activity.DaggerActivity"></activity>
-        <activity android:name=".Activity.FragmentbaseActivity">
-
-        </activity>
+        <activity android:name=".Activity.TodoRegistActivity"></activity>
+        <activity android:name=".Activity.TodoActivity" />
+        <activity android:name=".Activity.FragmentSampleActivity" />
+        <activity android:name=".Activity.DaggerActivity" />
+        <activity android:name=".Activity.FragmentbaseActivity" />
         <activity android:name=".Activity.Weather_2_Activity" />
         <activity android:name=".Activity.WeatherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
