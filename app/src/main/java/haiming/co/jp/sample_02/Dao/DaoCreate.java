@@ -7,8 +7,8 @@ import android.support.annotation.Nullable;
 
 public class DaoCreate extends SQLiteOpenHelper {
 
-    private final static String DB_NAME ="weather.db";  // DB名
-    public final static int	DB_VERSION = 1;           // バージョン
+    final static String DB_NAME ="weather.db";  // DB名
+    final static int	DB_VERSION = 1;             // バージョン
 
     private final String create_todo_table = "CREATE TABLE TBL_todo (" +
                                              "id INTEGER PRIMARY KEY,"+
@@ -25,24 +25,6 @@ public class DaoCreate extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.close();
     }
-
-    // todoメモの追加
-    //public boolean ineart_data(String title, String content, String date){
-    //    boolean res = false;
-    //    return res;
-    //}
-
-    // todoメモの全取得
-    //public ArrayList sel_all_todo(){
-    //    ArrayList arrayList = new ArrayList();
-    //    return arrayList;
-    //}
-
-    // todoメモの削除
-    //public boolean del_todo(String date){
-    //    boolean res = false;
-    //    return res;
-    //}
 
     //データベースヘルパーのコンストラクタ
     @Override
