@@ -60,6 +60,7 @@ public class FragmentbaseActivity extends AppCompatActivity implements TabHost.O
     public void dialog_btn(View v){
         sampleDialogFragment sampleDialogFragment = new sampleDialogFragment();
         sampleDialogFragment.show(getSupportFragmentManager(),"Sample");
+
     }
 
     public void onbtn_onClick(View v){
@@ -91,5 +92,4 @@ public class FragmentbaseActivity extends AppCompatActivity implements TabHost.O
             }
         }
     }
-
 }

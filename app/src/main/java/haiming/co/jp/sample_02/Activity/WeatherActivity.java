@@ -32,7 +32,9 @@ import haiming.co.jp.sample_02.R;
  */
 public class WeatherActivity extends AppCompatActivity {
 
-    private final String url_weather_5days = "http://api.openweathermap.org/data/2.5/forecast/?id=%s&units=metric&lang=ja&appid=%s";                       // 5日間の天気取得URL
+    private final String url_weather_5days = "http://api.openweathermap.org/data/2.5/forecast/?id=%s&units=metric&lang=ja&appid=%s";    // 5日間の天気取得URL
+    private final String url_weather_5dayslongitude_latitude = "http://api.openweathermap.org/data/2.5/forecast/?lat=%s&lon=%s&units=metric&lang=ja&appid=%s";    // 5日間の天気取得URL(緯度経度検索)
+    private final String url_weather_longitude_latitude = "http://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&units=metric&lang=ja&cnt=1&appid=%s";     // 現在の天気取得URL（緯度経度検索）
     private TextView textView;
     private ProgressDialog progressDialog;
     private RecyclerView rv;
@@ -144,7 +146,7 @@ public class WeatherActivity extends AppCompatActivity {
 
                                 Common.arrayList_weather = arrayLists;
 
-                                Intent intent = new Intent(getApplicationContext(), Weather_2_ACtivity.class);
+                                Intent intent = new Intent(getApplicationContext(), Weather_2_Activity.class);
                                 startActivity(intent);
 
                                 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

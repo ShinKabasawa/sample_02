@@ -15,6 +15,12 @@ public class DaggerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dagger2);
         Log.v("DaggerActivity","onCreate");
         GreetingService.GreetingCompornent compornent = haiming.co.jp.sample_02.Interface.DaggerGreetingService_GreetingCompornent.builder().build();
-        compornent.greet().print("令和");
+        compornent.greet().print("Hello");
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        Log.v("DaggerActivity","onStart");
     }
 }
