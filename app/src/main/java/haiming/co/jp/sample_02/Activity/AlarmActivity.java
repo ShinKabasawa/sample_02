@@ -2,9 +2,8 @@ package haiming.co.jp.sample_02.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import haiming.co.jp.sample_02.DialogFragment.DatePickerDialogFragment;
 import haiming.co.jp.sample_02.DialogFragment.TimePickerDialogFragment;
@@ -14,15 +13,7 @@ import haiming.co.jp.sample_02.R;
 
 public class AlarmActivity extends AppCompatActivity {
 
-    // 設定した時刻を表示するTextView
-    private TextView settimer1_txt;
-    private TextView settimer2_txt;
-    private TextView settimer3_txt;
-
-    // 設定するアラームのタイトルを入力するEditText
-    private EditText settimer_title1_edit;
-    private EditText settimer_title2_edit;
-    private EditText settimer_title3_edit;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

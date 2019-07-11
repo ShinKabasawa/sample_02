@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import haiming.co.jp.sample_02.Activity.TodoActivity;
 import haiming.co.jp.sample_02.Activity.TodoDetailActivity;
 import haiming.co.jp.sample_02.Data.TodoData;
 import haiming.co.jp.sample_02.R;
@@ -25,7 +24,7 @@ public class TodoListAdapater extends RecyclerView.Adapter<TodoViewHolder> {
     private Activity activity;
 
 
-    public TodoListAdapater(List<TodoData> arrayList, TodoActivity todoActivity) {
+    public TodoListAdapater(List<TodoData> arrayList, Activity todoActivity) {
         this.list = (ArrayList<TodoData>) arrayList;
         this.activity = todoActivity;
     }
