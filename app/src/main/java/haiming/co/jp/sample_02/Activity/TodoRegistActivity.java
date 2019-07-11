@@ -2,9 +2,15 @@ package haiming.co.jp.sample_02.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import haiming.co.jp.sample_02.Dao.DaoTodo;
 import haiming.co.jp.sample_02.R;
 
 public class TodoRegistActivity extends AppCompatActivity {
@@ -30,17 +36,31 @@ public class TodoRegistActivity extends AppCompatActivity {
     }
 
     public void onClick_Regist(View v){
-        title = title_edit_txt.getText().toString();
-        content = content_edit_txt.getText().toString();
+        title = title_edit_txt.getText().toString().trim();
+        content = content_edit_txt.getText().toString().trim();
 
-        if (!title.equals("") && content.equals("")){
+        boolean flg = false;
+
+        if (!title.equals("") && !content.equals("")){
             // Todoの登録
+            DaoTodo daoTodo = new DaoTodo(this,"",null,1);
+            Calendar cal = Calendar.getInstance();
+            Date date_ = cal.getTime();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+            String date = simpleDateFormat.format(date_);
+            Log.v("#$#$#$","DATE" + date);
+            flg = daoTodo.add_todo(title,content,date,0);
         }
 
-        // TodoのDB登録完了後、EditTextの値初期化
-        init();
+        if (flg) {
+            // TodoのDB登録完了後、EditTextの値初期化
+            init();
+        }else{
+            // Todo登録失敗した場合、EditTextの初期化を行わない
+        }
     }
 
+    // 初期化
     private void init(){
         title = "";
         content = "";

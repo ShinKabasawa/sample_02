@@ -13,10 +13,10 @@ import haiming.co.jp.sample_02.R;
  * Todo用のViewHolder
  */
 public class TodoViewHolder extends RecyclerView.ViewHolder {
-    CheckBox checkBox;
-    TextView title_view;
-    TextView content_view;
-    LinearLayout linearLayout;
+    public CheckBox checkBox;
+    public TextView title_view;
+    public TextView content_view;
+    public LinearLayout linearLayout;
 
     public TodoViewHolder(@NonNull View itemView) {
         super(itemView);
