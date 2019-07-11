@@ -33,7 +33,7 @@ public class TodoActivity extends AppCompatActivity {
 
     // 初期化
     private void init(){
-
+        recyclerView = (RecyclerView)findViewById(R.id.todo_recyclerview);
     }
 
     // RecyclerViewにデータをセット
