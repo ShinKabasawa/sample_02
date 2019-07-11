@@ -73,10 +73,10 @@ public class DaoTodo extends SQLiteOpenHelper {
         if (c.moveToFirst()){
             do {
                 data = new TodoData();
-                data.todo_title = c.getString(0);
-                data.todo_content = c.getString(1);
-                data.setting_date = c.getString(2);
-                data.fin_flg = c.getInt(3);
+                data.todo_title = c.getString(1);
+                data.todo_content = c.getString(2);
+                data.setting_date = c.getString(3);
+                data.fin_flg = c.getInt(4);
 
                 arrayList.add(data);
             }while (c.moveToNext());

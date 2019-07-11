@@ -1,51 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <FrameLayout
+        android:id="@+id/Fraem"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <CheckBox
             android:id="@+id/todo_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
             android:layout_weight="0.5"
             android:enabled="false" />
 
-        <LinearLayout
-            android:id="@+id/todo_content_linear"
-            android:layout_width="wrap_content"
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/todo_content_linear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="20"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Fraem"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/todo_titlle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:orientation="vertical">
+            android:layout_marginTop="5dp"
+            android:textAlignment="viewStart"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/todo_titlle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textAlignment="viewStart"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/todo_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="5dp"
-                android:textAlignment="viewStart"
-                android:textSize="16sp" />
-        </LinearLayout>
-
+        <TextView
+            android:id="@+id/todo_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="viewStart"
+            android:textSize="16sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

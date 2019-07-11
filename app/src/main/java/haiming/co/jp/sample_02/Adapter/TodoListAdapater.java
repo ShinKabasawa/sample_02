@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,7 @@ public class TodoListAdapater extends RecyclerView.Adapter<TodoViewHolder> {
     @Override
     public TodoViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        View view = inflater.inflate(R.layout.weather_list, viewGroup, false);
+        View view = inflater.inflate(R.layout.todo_layout, viewGroup, false);
         TodoViewHolder todoViewHolder = new TodoViewHolder(view);
         return todoViewHolder ;
     }
@@ -50,12 +51,27 @@ public class TodoListAdapater extends RecyclerView.Adapter<TodoViewHolder> {
             todoViewHolder.checkBox.setChecked(false);
         }
 
-        todoViewHolder.checkBox.setOnClickListener(new View.OnClickListener() {
+//        todoViewHolder.checkBox.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (todoViewHolder.checkBox.isChecked()){
+//                    Log.v("Adapter","CHECKBOX " + todoViewHolder.checkBox.isChecked());
+//                    todoViewHolder.checkBox.setChecked(false);
+//                }else{
+//                    Log.v("Adapter","CHECKBOX " + todoViewHolder.checkBox.isChecked());
+//                    todoViewHolder.checkBox.setChecked(true);
+//                }
+//            }
+//        });
+
+        todoViewHolder.frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (todoViewHolder.checkBox.isChecked()){
+                    Log.v("########","eRRRR");
                     todoViewHolder.checkBox.setChecked(false);
                 }else{
+                    Log.v("########","eRRRR");
                     todoViewHolder.checkBox.setChecked(true);
                 }
             }
