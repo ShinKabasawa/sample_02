@@ -31,7 +31,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.TodoDetailActivity"></activity>
+        <activity android:name=".Activity.EditTodoActivity"></activity>
+        <activity android:name=".Activity.TodoDetailActivity" />
         <activity android:name=".Activity.TodoRegistActivity" />
         <activity android:name=".Activity.TodoActivity">
             <intent-filter>
@@ -44,7 +45,7 @@
         <activity android:name=".Activity.DaggerActivity" />
         <activity android:name=".Activity.FragmentbaseActivity" />
         <activity android:name=".Activity.Weather_2_Activity" />
-        <activity android:name=".Activity.WeatherActivity"></activity>
+        <activity android:name=".Activity.WeatherActivity" />
         <activity android:name=".Activity.WebapiActivity" />
         <activity android:name=".Activity.PermissionActivity" />
         <activity android:name=".Activity.ProgressActivity" />

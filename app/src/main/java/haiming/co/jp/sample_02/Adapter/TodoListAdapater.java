@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,28 +50,15 @@ public class TodoListAdapater extends RecyclerView.Adapter<TodoViewHolder> {
             todoViewHolder.checkBox.setChecked(false);
         }
 
-//        todoViewHolder.checkBox.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (todoViewHolder.checkBox.isChecked()){
-//                    Log.v("Adapter","CHECKBOX " + todoViewHolder.checkBox.isChecked());
-//                    todoViewHolder.checkBox.setChecked(false);
-//                }else{
-//                    Log.v("Adapter","CHECKBOX " + todoViewHolder.checkBox.isChecked());
-//                    todoViewHolder.checkBox.setChecked(true);
-//                }
-//            }
-//        });
-
         todoViewHolder.frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (todoViewHolder.checkBox.isChecked()){
-                    Log.v("########","eRRRR");
                     todoViewHolder.checkBox.setChecked(false);
+                    // DB更新
                 }else{
-                    Log.v("########","eRRRR");
                     todoViewHolder.checkBox.setChecked(true);
+                    // DB更新
                 }
             }
         });
