@@ -39,9 +39,4 @@ public class EditTodoActivity extends AppCompatActivity {
         finish();
         overridePendingTransition(R.anim.in_left,R.anim.out_right);
     }
-
-
-
-
-
 }
