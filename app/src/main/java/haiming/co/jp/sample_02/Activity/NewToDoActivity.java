@@ -28,7 +28,7 @@ public class NewToDoActivity extends FragmentActivity implements ViewPager.OnPag
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(1);
+        viewPager.setCurrentItem(0);
         viewPager.setOnPageChangeListener(this);
     }
 
@@ -55,12 +55,17 @@ public class NewToDoActivity extends FragmentActivity implements ViewPager.OnPag
 
             int nextPage = 0;
             if(currentPage == 0){
-                //最初のページに到達
-//                nextPage = 1;
-//                indexes.add(0, indexes.get(0) - 1);
-//                //1ページ目は既に存在するため、Fragmentを全て破棄する
-//                adapter.destroyAllItem(viewPager);
-//                adapter.notifyDataSetChanged();
+                /////////////////////////////////////////////////////////
+                // 最初のページに到達                                  //
+                /////////////////////////////////////////////////////////
+                // nextPage = 1;                                       //
+                // indexes.add(0, indexes.get(0) - 1);                 //
+                /////////////////////////////////////////////////////////
+                // 1ページ目は既に存在するため、Fragmentを全て破棄する //
+                /////////////////////////////////////////////////////////
+                // adapter.destroyAllItem(viewPager);                  //
+                // adapter.notifyDataSetChanged();                     //
+                /////////////////////////////////////////////////////////
             }else if(currentPage == indexes.size() - 1){
                 //最後のページに到達
                 nextPage = currentPage;
