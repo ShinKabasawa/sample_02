@@ -1,5 +1,6 @@
 package haiming.co.jp.sample_02.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -41,6 +42,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherViewHolder> {
         return viewholder;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull WeatherViewHolder weatherViewHolder, int i) {
         String[] date = list.get(i).date.split(" ");
@@ -51,7 +53,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherViewHolder> {
         weatherViewHolder.humidity_view.setText(list.get(i).humidity + "％");
         weatherViewHolder.pressure_view.setText(list.get(i).pressure + "hpa");
         weatherViewHolder.weather_view.setText(list.get(i).description);
-        String path = "/data/data/haiming.co.jp.sample_02/file/" + list.get(i).icon + ".png";
+        @SuppressLint("SdCardPath") String path = "/data/data/haiming.co.jp.sample_02/file/" + list.get(i).icon + ".png";
 
         Log.v("WeatherAdapter","icon = " + path);
 

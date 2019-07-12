@@ -139,7 +139,7 @@ public class WebapiActivity extends AppCompatActivity {
                         String icon_file = Common.weatherlist.get(0).icon;
                         Log.v("WebapiActivity","asyncTaskCallback");
                         String icon_url = "http://openweathermap.org/img/w/" + icon_file + ".png";
-                        String file_name = new String();
+                        String file_name = "";
                         file_name = icon_file + ".png";
                         ApiManager.get_weather_icon get_icon = new ApiManager.get_weather_icon(icon_url, file_name, asyncTaskCallback_icon);
                         get_icon.execute();

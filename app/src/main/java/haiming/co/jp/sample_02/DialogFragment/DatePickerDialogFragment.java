@@ -35,6 +35,20 @@ public class DatePickerDialogFragment extends DialogFragment implements DatePick
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar calendar = Calendar.getInstance();
+        int year_ = calendar.get(Calendar.YEAR);
+        int month_ = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        if (year < year_){
+            return;
+        }else if (month < month_){
+            return;
+        }else if (dayOfMonth < day){
+            return;
+        }
+
+
         decisionCallback.onDecisionDate(String.valueOf(year), String.valueOf(month), String.valueOf(dayOfMonth));
     }
 }

@@ -40,17 +40,19 @@ public class PagerAdapter extends FragmentPagerAdapter {
         return POSITION_NONE;
     }
 
-    //public void destroyAllItem(ViewPager pager) {
-    //    for (int i = 0; i < getCount() - 1; i++) {
-    //        try {
-    //            Object obj = this.instantiateItem(pager, i);
-    //            if (obj != null)
-    //                destroyItem(pager, i, obj);
-    //        } catch (Exception e) {
-    //            e.printStackTrace();
-    //        }
-    //    }
-    //}
+    /////////////////////////////////////////////////////////////
+    //public void destroyAllItem(ViewPager pager) {            //
+    //    for (int i = 0; i < getCount() - 1; i++) {           //
+    //        try {                                            //
+    //            Object obj = this.instantiateItem(pager, i); //
+    //            if (obj != null)                             //
+    //                destroyItem(pager, i, obj);              //
+    //        } catch (Exception e) {                          //
+    //            e.printStackTrace();                         //
+    //        }                                                //
+    //    }                                                    //
+    //}                                                        //
+    /////////////////////////////////////////////////////////////
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {

@@ -33,7 +33,7 @@ public class ListActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         rv = (RecyclerView)findViewById(R.id.prefectures_list);
-        RecyclerView.Adapter adapter = new samplelistAdapter(createDateset(),this);
+        RecyclerView.Adapter<haiming.co.jp.sample_02.ViewHolder.sampleViewHolder> adapter = new samplelistAdapter(createDateset(),this);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setHasFixedSize(true);
@@ -61,8 +61,7 @@ public class ListActivity extends AppCompatActivity {
         ///////////////////////////////////////////////////
         // string-arrayから取得した配列をArrayListに格納 //
         ///////////////////////////////////////////////////
-        ArrayList arrayList = new ArrayList();
-        arrayList.addAll(Arrays.asList(ta));
+        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(ta));
         ///////////////////////////////////////////////////
 
         Log.v("ListActivity","arraylist.size =" + arrayList.size());
