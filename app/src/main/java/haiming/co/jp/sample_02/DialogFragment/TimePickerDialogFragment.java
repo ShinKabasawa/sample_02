@@ -32,6 +32,12 @@ public class TimePickerDialogFragment  extends DialogFragment implements TimePic
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        Calendar calendar = Calendar.getInstance();
+        int min =  calendar.get(Calendar.MINUTE);
+//        int hour = calendar.get
+
+//        if ()
+
         timeDecisionCallback.DecidionTime(String.valueOf(hourOfDay),String.valueOf(minute));
     }
 }

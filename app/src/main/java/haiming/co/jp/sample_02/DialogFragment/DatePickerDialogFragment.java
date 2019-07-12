@@ -7,6 +7,7 @@ import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 import haiming.co.jp.sample_02.Interface.DateDecisionCallback;
 
@@ -26,7 +27,7 @@ public class DatePickerDialogFragment extends DialogFragment implements DatePick
         int month = calendar.get(Calendar.MONTH);
         int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),this, year, month, dayOfMonth);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(Objects.requireNonNull(getActivity()),this, year, month, dayOfMonth);
         this.setCancelable(false);
         return datePickerDialog;
     }

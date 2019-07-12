@@ -52,7 +52,7 @@ public class AlarmActivity extends AppCompatActivity {
 
                 TimePickerDialogFragment.TimeCallback_Set(timeDecisionCallback);
                 TimePickerDialogFragment timePickerDialogFragment = new TimePickerDialogFragment();
-                timePickerDialogFragment.show(getSupportFragmentManager(),"timerpickerfragment");
+                timePickerDialogFragment.show(getSupportFragmentManager(),"timePicker");
             }
         };
 

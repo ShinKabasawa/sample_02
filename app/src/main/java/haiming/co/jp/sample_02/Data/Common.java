@@ -25,12 +25,9 @@ public class Common {
         ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
-
         if (networkInfo == null || !networkInfo.isConnected()){
             result = true;
         }
-
         return  result;
     }
-
 }
