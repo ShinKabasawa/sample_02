@@ -35,9 +35,13 @@ public class AlarmNotification extends BroadcastReceiver {
         String title = context.getString(R.string.app_name);
 
         long currentTime = System.currentTimeMillis();
-        SimpleDateFormat dataFormat =
-                new SimpleDateFormat("HH:mm:ss", Locale.JAPAN);
+        SimpleDateFormat dataFormat = new SimpleDateFormat("HH:mm:ss", Locale.JAPAN);
         String cTime = dataFormat.format(currentTime);
+
+        ///////////////////////////////////////////////////////
+        // DBからTodoのTitle取得                             //
+        // DaoTodo daoTodo = new DaoTodo(context,"",null,1); //
+        ///////////////////////////////////////////////////////
 
         // メッセージ　+ 11:22:331
         String message = "時間になりました。 " + cTime ;
@@ -64,7 +68,7 @@ public class AlarmNotification extends BroadcastReceiver {
             Notification notification = new Notification.Builder(context, channelId)
                     .setContentTitle(title)
                     // android標準アイコンから
-                    .setSmallIcon(R.drawable.ic_launcher_background)
+                    .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
                     .setContentText(message)
                     .setAutoCancel(true)
                     .setContentIntent(pendingIntent)

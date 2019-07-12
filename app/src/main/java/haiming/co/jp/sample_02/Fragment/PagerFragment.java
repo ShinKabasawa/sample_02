@@ -3,8 +3,10 @@ package haiming.co.jp.sample_02.Fragment;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 import haiming.co.jp.sample_02.Activity.TodoRegistActivity;
 import haiming.co.jp.sample_02.Adapter.TodoListAdapater;
@@ -51,7 +54,7 @@ public class PagerFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.todo_rec);
 
         List<TodoData> arrayList = new ArrayList<>();
-        DaoTodo daoTodo = new DaoTodo(getActivity().getApplicationContext(), "", null, 1);
+        DaoTodo daoTodo = new DaoTodo(Objects.requireNonNull(getActivity()).getApplicationContext(), "", null, 1);
 
         arrayList = daoTodo.sel_all_todo();
 
@@ -80,6 +83,7 @@ public class PagerFragment extends Fragment {
         return view;
     }
 
+    // ImageViewのクリックリスナー
     private View.OnClickListener img_onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -91,6 +95,7 @@ public class PagerFragment extends Fragment {
             final String[] minute = {""};
 
             final TimeDecisionCallback timeDecisionCallback = new TimeDecisionCallback() {
+                @RequiresApi(api = Build.VERSION_CODES.M)
                 @Override
                 public void DecidionTime(String hour_, String minute_) {
 
@@ -99,7 +104,12 @@ public class PagerFragment extends Fragment {
 
                     // 設定された日時の確認
                     Log.v("Calender", "date = " + year[0] + "/" + month[0] + "/" + day[0] + " " + hour[0] + ":" + minute[0]);
-                    String date =year[0] + "/" + month[0] + "/" + day[0] + " " + hour[0] + ":" + minute[0];
+                    String[] date = new String[5];
+                    date[0] = year[0];
+                    date[1] = month[0];
+                    date[2] = day[0];
+                    date[3] = hour[0];
+                    date[4] = minute[0];
                     setAlarm(date);
 
                 }
@@ -113,34 +123,47 @@ public class PagerFragment extends Fragment {
 
                     TimePickerDialogFragment.TimeCallback_Set(timeDecisionCallback);
                     TimePickerDialogFragment timePickerDialogFragment = new TimePickerDialogFragment();
-                    timePickerDialogFragment.show(getActivity().getSupportFragmentManager(), "timerpickerfragment");
+                    timePickerDialogFragment.show(Objects.requireNonNull(getActivity()).getSupportFragmentManager(), "timerpickerfragment");
 
                 }
             };
 
             DatePickerDialogFragment.DateCallback_Set(decisionCallback);
             DatePickerDialogFragment datePicker = new DatePickerDialogFragment();
-            datePicker.show(getActivity().getSupportFragmentManager(), "datePicker");
+            datePicker.show(Objects.requireNonNull(getActivity()).getSupportFragmentManager(), "datePicker");
         }
     };
 
-
+    // FABボタンのクリックリスナー
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getActivity().getApplicationContext(), TodoRegistActivity.class);
+            Intent intent = new Intent(Objects.requireNonNull(getActivity()).getApplicationContext(), TodoRegistActivity.class);
             startActivity(intent);
             getActivity().overridePendingTransition(R.anim.in_right,R.anim.out_left);
         }
     };
 
-    private void setAlarm(String date){
+    /**
+     * アラームをセットする
+     * @param date　設定した日時
+     */
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void setAlarm(String[] date){
         // Alarmの登録
+        Log.v("setAlarm","currentTimeMills = " + System.currentTimeMillis());
+
+        //////////////////////////////////////////////////////////
+        //Calendar calendar = Calendar.getInstance();           //
+        //calendar.setTimeInMillis(System.currentTimeMillis()); //
+        //////////////////////////////////////////////////////////
 
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Integer.parseInt(date[0]),Integer.parseInt(date[1]),Integer.parseInt(date[2]),Integer.parseInt(date[3]),Integer.parseInt(date[4]));
         // 10sec
-        calendar.add(Calendar.SECOND, 10);
+        //calendar.add(Calendar.SECOND, 10);
+
+        Log.v("setAlarm","calender.getTImeMIlls" + calendar.getTimeInMillis());
 
         Intent intent = new Intent(getContext(), AlarmNotification.class);
         intent.putExtra("RequestCode", requestCode);
@@ -148,10 +171,10 @@ public class PagerFragment extends Fragment {
         pending = PendingIntent.getBroadcast(getContext(), requestCode, intent, 0);
 
         // アラームをセットする
-        am = (AlarmManager) getActivity().getSystemService(ALARM_SERVICE);
+        am = (AlarmManager) Objects.requireNonNull(getActivity()).getSystemService(ALARM_SERVICE);
 
         if (am != null) {
-            am.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pending);
+            am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pending);
 
             // トーストで設定されたことをを表示
             Toast.makeText(getContext(), "alarm start", Toast.LENGTH_SHORT).show();
