@@ -55,6 +55,7 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
+        Log.v("test","onStart");
         LinearLayoutManager llm_1 = new LinearLayoutManager(this);
         rv.setHasFixedSize(true);
         rv.setLayoutManager(llm_1);
