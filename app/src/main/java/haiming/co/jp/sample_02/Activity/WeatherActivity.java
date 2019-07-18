@@ -38,10 +38,6 @@ public class WeatherActivity extends AppCompatActivity {
     private TextView textView;
     private ProgressDialog progressDialog;
     private RecyclerView rv;
-    // private RecyclerView rv_1;
-    // private RecyclerView rv_2;
-    // private RecyclerView rv_3;
-    // private RecyclerView rv_4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

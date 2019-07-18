@@ -60,12 +60,12 @@ public class Weather_5days_hol_Adapter extends RecyclerView.Adapter<WeatherViewH
         File file = new File(path);
 
 //        if (file.exists()){
-            try(InputStream inputStream = context.getAssets().open(list.get(i).icon + ".png");) {
-                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                viewHolder.icon_view.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try(InputStream inputStream = context.getAssets().open(list.get(i).icon + ".png")) {
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            viewHolder.icon_view.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 //        }else{
 //            // そのまま
 //            // weatherViewHolder.icon_view.setImageDrawable(weather_activity.getResources().getDrawable(R.drawable.ic_launcher_foreground));
