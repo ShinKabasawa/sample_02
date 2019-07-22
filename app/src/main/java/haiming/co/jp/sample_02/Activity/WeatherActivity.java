@@ -17,7 +17,6 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.TimeZone;
 
 import haiming.co.jp.sample_02.Adapter.WeatherAdapter;
@@ -93,8 +92,8 @@ public class WeatherActivity extends AppCompatActivity {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                ArrayList<List<Weather5days_Data>> arrayLists = new ArrayList<>();
-                                List<Weather5days_Data> list = new ArrayList<>();
+                                ArrayList<ArrayList<Weather5days_Data>> arrayLists = new ArrayList<>();
+                                ArrayList<Weather5days_Data> list = new ArrayList<>();
 
                                 for (int i = 0; i < Common.weather5days_datalist.size(); i++) {
                                     String[] s = Common.weather5days_datalist.get(i).date.split(" ");

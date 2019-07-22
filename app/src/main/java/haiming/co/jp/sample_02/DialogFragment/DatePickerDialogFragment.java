@@ -47,8 +47,6 @@ public class DatePickerDialogFragment extends DialogFragment implements DatePick
         }else if (dayOfMonth < day){
             return;
         }
-
-
         decisionCallback.onDecisionDate(String.valueOf(year), String.valueOf(month), String.valueOf(dayOfMonth));
     }
 }

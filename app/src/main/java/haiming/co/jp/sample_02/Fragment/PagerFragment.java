@@ -184,7 +184,6 @@ public class PagerFragment extends Fragment {
 
             // トーストで設定されたことをを表示
             Toast.makeText(getContext(), "alarm start", Toast.LENGTH_SHORT).show();
-
             Log.d("debug", "start");
         }
     }

@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class Common {
     public static List<Weather_Data> weatherlist;                           // 現在の天気データ配列
-    public static List<Weather5days_Data> weather5days_datalist;            // 5日間の天気データ配列
-    public static ArrayList<List<Weather5days_Data>> arrayList_weather;     // 5日間の天気データ（3時間毎）データ配列
+    public static ArrayList<Weather5days_Data> weather5days_datalist;            // 5日間の天気データ配列
+    public static ArrayList<ArrayList<Weather5days_Data>> arrayList_weather;     // 5日間の天気データ（3時間毎）データ配列
 
     /**
      * ネットワーク接続確認
