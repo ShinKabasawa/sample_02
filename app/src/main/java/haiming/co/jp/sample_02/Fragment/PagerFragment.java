@@ -72,7 +72,7 @@ public class PagerFragment extends Fragment {
         llm.setSmoothScrollbarEnabled(true);
 
         // 区切り線追加
-        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(Objects.requireNonNull(getContext()), DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(itemDecoration);
         recyclerView.setAdapter(adapter);
 

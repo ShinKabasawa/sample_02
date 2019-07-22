@@ -443,6 +443,10 @@ public class ApiManager {
                         e.printStackTrace();
                         fivedays_callback.onTaskCompleted("NG");
                     }
+
+
+
+
                 }else{
                     if (result != null) {
                         Log.v("APIManager", "getweather response.status = " + result.code());
