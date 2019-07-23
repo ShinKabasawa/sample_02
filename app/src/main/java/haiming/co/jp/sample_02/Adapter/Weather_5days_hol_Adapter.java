@@ -52,9 +52,11 @@ public class Weather_5days_hol_Adapter extends RecyclerView.Adapter<WeatherViewH
         viewHolder.pressure_view.setText(list.get(i).pressure + "hpa");
         viewHolder.weather_view.setText(list.get(i).description);
 
-        //@SuppressLint("SdCardPath") String path = "/data/data/haiming.co.jp.sample_02/file/" + list.get(i).icon + ".png";
-        //Log.v("WeatherAdapter","icon = " + path);
-        //File file = new File(path);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // @SuppressLint("SdCardPath") String path = "/data/data/haiming.co.jp.sample_02/file/" + list.get(i).icon + ".png"; //
+        // Log.v("WeatherAdapter","icon = " + path);                                                                         //
+        // File file = new File(path);                                                                                       //
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         try(InputStream inputStream = context.getAssets().open(list.get(i).icon + ".png")) {
             Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
