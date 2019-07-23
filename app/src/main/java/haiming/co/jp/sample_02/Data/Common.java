@@ -15,6 +15,13 @@ public class Common {
     public static ArrayList<Weather5days_Data> weather5days_datalist;            // 5日間の天気データ配列
     public static ArrayList<ArrayList<Weather5days_Data>> arrayList_weather;     // 5日間の天気データ（3時間毎）データ配列
 
+    public static ArrayList arrayList_1;
+    public static ArrayList arrayList_2;
+    public static ArrayList arrayList_3;
+    public static ArrayList arrayList_4;
+    public static ArrayList arrayList_5;
+
+
     /**
      * ネットワーク接続確認
      * @param context   コンテキスト

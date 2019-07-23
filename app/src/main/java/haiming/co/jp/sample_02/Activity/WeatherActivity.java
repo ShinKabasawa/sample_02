@@ -23,6 +23,7 @@ import haiming.co.jp.sample_02.Adapter.WeatherAdapter;
 import haiming.co.jp.sample_02.Data.Common;
 import haiming.co.jp.sample_02.Data.Weather5days_Data;
 import haiming.co.jp.sample_02.Interface.AsyncTaskCallback;
+import haiming.co.jp.sample_02.Interface.sample;
 import haiming.co.jp.sample_02.Manager.ApiManager;
 import haiming.co.jp.sample_02.R;
 
@@ -169,6 +170,14 @@ public class WeatherActivity extends AppCompatActivity {
                     if (progressDialog != null) {
                         progressDialog.dismiss();
                     }
+                }
+            };
+
+            sample sample = new sample() {
+                @Override
+                public void Callback(ArrayList arrayList, ArrayList arrayList_) {
+                    // 処理
+
                 }
             };
 

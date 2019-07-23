@@ -23,11 +23,6 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-
-    <!--<meta-data-->
-        <!--android:name="com.google.android.gms.ads.APPLICATION_ID"-->
-        <!--android:value="ca-app-pub-3940256099942544~3347511713"/>-->
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -37,20 +32,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".Activity.Main2Activity"></activity>
 
         <meta-data
-        android:name="com.google.android.gms.ads.APPLICATION_ID"
-        android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
 
         <receiver
             android:name=".AlarmNotification"
-            android:process=":remote" >
-        </receiver>
+            android:process=":remote"></receiver>
 
         <activity android:name=".Activity.NewToDoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -58,16 +53,12 @@
         <activity android:name=".Activity.EditTodoActivity" />
         <activity android:name=".Activity.TodoDetailActivity" />
         <activity android:name=".Activity.TodoRegistActivity" />
-        <activity android:name=".Activity.TodoActivity">
-
-        </activity>
+        <activity android:name=".Activity.TodoActivity"></activity>
         <activity android:name=".Activity.FragmentSampleActivity" />
         <activity android:name=".Activity.DaggerActivity" />
         <activity android:name=".Activity.FragmentbaseActivity" />
         <activity android:name=".Activity.Weather_2_Activity" />
-        <activity android:name=".Activity.WeatherActivity">
-
-        </activity>
+        <activity android:name=".Activity.WeatherActivity"></activity>
         <activity android:name=".Activity.WebapiActivity" />
         <activity android:name=".Activity.PermissionActivity" />
         <activity android:name=".Activity.ProgressActivity" />
@@ -75,9 +66,6 @@
         <activity android:name=".Activity.ListActivity" />
         <activity android:name=".Activity.NextActivity" />
         <activity android:name=".Activity.MainActivity" />
-
-
-
     </application>
 
 </manifest>
