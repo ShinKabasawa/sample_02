@@ -201,28 +201,6 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder().addLocationRequest(locationRequest);
 
         builder.setAlwaysShow(true);
-
-//        PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi.checkLocationSettings(googleApiClient, builder.build());
-//        PendingResult<LocationSettingsResult> result = (PendingResult<LocationSettingsResult>) LocationServices.FusedLocationApi;
-//        result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
-//            @Override
-//            public void onResult(LocationSettingsResult result) {
-//                final Status status = result.getStatus();
-//                switch (status.getStatusCode()) {
-//                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
-//                        try {
-//                            // Show the dialog by calling startResolutionForResult(),
-//                            // and check the result in onActivityResult().
-//                            status.startResolutionForResult(Main2Activity.this, 199);
-//
-//                            finish();
-//                        } catch (Exception e) {
-//                            // Ignore the error.
-//                        }
-//                        break;
-//                }
-//            }
-//        });
     }
 
 

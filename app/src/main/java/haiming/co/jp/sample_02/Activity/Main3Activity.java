@@ -47,40 +47,28 @@ public class Main3Activity extends AppCompatActivity {
 
     // 許可を求める
     private void requestLocationPermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    REQUEST_PERMISSION);
-
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSION);
         } else {
-            Toast toast = Toast.makeText(this,
-                    "許可されないとアプリが実行できません", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,"許可されないとアプリが実行できません", Toast.LENGTH_SHORT);
             toast.show();
 
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION,},
-                    REQUEST_PERMISSION);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, REQUEST_PERMISSION);
 
         }
     }
 
     // 結果の受け取り
     @Override
-    public void onRequestPermissionsResult(
-            int requestCode,
-             String[] permissions,
-             int[] grantResults) {
+    public void onRequestPermissionsResult( int requestCode, String[] permissions, int[] grantResults) {
 
         if (requestCode == REQUEST_PERMISSION) {
             // 使用が許可された
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 locationActivity();
-
             } else {
                 // それでも拒否された時の対応
-                Toast toast = Toast.makeText(this,
-                        "これ以上なにもできません", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(this,"これ以上なにもできません", Toast.LENGTH_SHORT);
                 toast.show();
             }
         }
