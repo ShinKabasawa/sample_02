@@ -13,6 +13,11 @@ import haiming.co.jp.sample_02.Fragment.PagerFragment;
 public class PagerAdapter extends FragmentPagerAdapter {
 
     private ArrayList<Integer> mIndexes = new ArrayList<Integer>();
+    private ArrayList arrayList;
+
+    public void setArray(ArrayList array){
+        arrayList = array;
+    }
 
     public PagerAdapter(FragmentManager fm) {
         super(fm);

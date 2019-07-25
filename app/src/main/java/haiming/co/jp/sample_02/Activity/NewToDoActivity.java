@@ -1,6 +1,7 @@
 package haiming.co.jp.sample_02.Activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -23,15 +24,23 @@ public class NewToDoActivity extends FragmentActivity implements ViewPager.OnPag
         items.add(0);
         items.add(1);
         items.add(2);
-
+        ArrayList arrayList = new ArrayList();
         PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
+        adapter.setArray(arrayList);
         adapter.addAll(items);
-
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
         viewPager.setOnPageChangeListener(this);
 
+        Intent intent = new Intent();
+
+        //Bundle budle = new Bundle();
+        //ArrayList arrayList = new ArrayList();
+        //budle.putParcelableArrayList("array",arrayList);
+        //intent.putExtra("bundle",budle);
+        //Bundle bundle = intent.getBundleExtra("bundle");
+        //bundle.getParcelableArray("array");
         // Test App ID
         //MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
         //AdView adView = findViewById(R.id.adView);
