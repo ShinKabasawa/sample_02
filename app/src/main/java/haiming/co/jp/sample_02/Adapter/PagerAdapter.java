@@ -29,6 +29,8 @@ public class PagerAdapter extends FragmentPagerAdapter {
         Bundle bundle = new Bundle();
         bundle.putInt("INDEX", mIndexes.get(position));
 
+
+
         PagerFragment fragment = new PagerFragment();
         fragment.setArguments(bundle);
 
