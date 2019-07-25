@@ -10,7 +10,6 @@
         android:id="@+id/Fraem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +27,8 @@
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             android:layout_weight="0.5"
-            android:enabled="false" />
+            android:enabled="false"
+            android:text="　　　" />
 
     </FrameLayout>
 

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
@@ -14,6 +13,11 @@ import haiming.co.jp.sample_02.Fragment.PagerFragment;
 public class PagerAdapter extends FragmentPagerAdapter {
 
     private ArrayList<Integer> mIndexes = new ArrayList<Integer>();
+    private ArrayList arrayList;
+
+    public void setArray(ArrayList array){
+        arrayList = array;
+    }
 
     public PagerAdapter(FragmentManager fm) {
         super(fm);
@@ -41,16 +45,19 @@ public class PagerAdapter extends FragmentPagerAdapter {
         return POSITION_NONE;
     }
 
-    public void destroyAllItem(ViewPager pager) {
-        for (int i = 0; i < getCount() - 1; i++) {
-            try {
-                Object obj = this.instantiateItem(pager, i);
-                if (obj != null)
-                    destroyItem(pager, i, obj);
-            } catch (Exception e) {
-            }
-        }
-    }
+    /////////////////////////////////////////////////////////////
+    //public void destroyAllItem(ViewPager pager) {            //
+    //    for (int i = 0; i < getCount() - 1; i++) {           //
+    //        try {                                            //
+    //            Object obj = this.instantiateItem(pager, i); //
+    //            if (obj != null)                             //
+    //                destroyItem(pager, i, obj);              //
+    //        } catch (Exception e) {                          //
+    //            e.printStackTrace();                         //
+    //        }                                                //
+    //    }                                                    //
+    //}                                                        //
+    /////////////////////////////////////////////////////////////
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {

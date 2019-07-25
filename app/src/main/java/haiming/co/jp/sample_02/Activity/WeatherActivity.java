@@ -17,13 +17,13 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.TimeZone;
 
 import haiming.co.jp.sample_02.Adapter.WeatherAdapter;
 import haiming.co.jp.sample_02.Data.Common;
 import haiming.co.jp.sample_02.Data.Weather5days_Data;
 import haiming.co.jp.sample_02.Interface.AsyncTaskCallback;
+import haiming.co.jp.sample_02.Interface.sample;
 import haiming.co.jp.sample_02.Manager.ApiManager;
 import haiming.co.jp.sample_02.R;
 
@@ -38,10 +38,6 @@ public class WeatherActivity extends AppCompatActivity {
     private TextView textView;
     private ProgressDialog progressDialog;
     private RecyclerView rv;
-    // private RecyclerView rv_1;
-    // private RecyclerView rv_2;
-    // private RecyclerView rv_3;
-    // private RecyclerView rv_4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +51,7 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
+        Log.v("test","onStart");
         LinearLayoutManager llm_1 = new LinearLayoutManager(this);
         rv.setHasFixedSize(true);
         rv.setLayoutManager(llm_1);
@@ -96,8 +93,8 @@ public class WeatherActivity extends AppCompatActivity {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                ArrayList<List<Weather5days_Data>> arrayLists = new ArrayList<>();
-                                List<Weather5days_Data> list = new ArrayList<>();
+                                ArrayList<ArrayList<Weather5days_Data>> arrayLists = new ArrayList<>();
+                                ArrayList<Weather5days_Data> list = new ArrayList<>();
 
                                 for (int i = 0; i < Common.weather5days_datalist.size(); i++) {
                                     String[] s = Common.weather5days_datalist.get(i).date.split(" ");
@@ -173,6 +170,14 @@ public class WeatherActivity extends AppCompatActivity {
                     if (progressDialog != null) {
                         progressDialog.dismiss();
                     }
+                }
+            };
+
+            sample sample = new sample() {
+                @Override
+                public void Callback(ArrayList arrayList, ArrayList arrayList_) {
+                    // 処理
+
                 }
             };
 

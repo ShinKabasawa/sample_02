@@ -1,5 +1,6 @@
 package haiming.co.jp.sample_02.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -39,7 +40,7 @@ public class TodoListAdapater extends RecyclerView.Adapter<TodoViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final TodoViewHolder todoViewHolder, final int i) {
+    public void onBindViewHolder(@NonNull final TodoViewHolder todoViewHolder, @SuppressLint("RecyclerView") final int i) {
         todoViewHolder.title_view.setText(list.get(i).todo_title);
         todoViewHolder.content_view.setText(list.get(i).todo_content);
 

@@ -2,6 +2,7 @@ package haiming.co.jp.sample_02.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,16 +12,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 import haiming.co.jp.sample_02.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Fragment1.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Fragment1#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Fragment1 extends Fragment {
 
     private String mParam1;
@@ -43,7 +38,7 @@ public class Fragment1 extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
-        Button button = (Button)getActivity().findViewById(R.id.fragment_btn);
+        Button button = (Button) Objects.requireNonNull(getActivity()).findViewById(R.id.fragment_btn);
         button.setOnClickListener(frag_btnlistener);
     }
 
@@ -56,9 +51,7 @@ public class Fragment1 extends Fragment {
     };
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        Log.v("Fragment1","onCreateVIew");
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View layoutInflater = inflater.inflate(R.layout.fragment_fragment1,container,false);
         TextView textView = (TextView)layoutInflater.findViewById(R.id.frag_text);
         textView.setText(mParam1);
@@ -73,8 +66,7 @@ public class Fragment1 extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
         }
     }
 

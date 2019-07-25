@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="haiming.co.jp.sample_02">
+
+    <compatible-screens>
+        <!-- all small size screens -->
+        <screen android:screenSize="small" android:screenDensity="ldpi" /> <!-- approximately 120 dpi -->
+        <screen android:screenSize="small" android:screenDensity="mdpi" /> <!-- approximately 160 dpi -->
+        <screen android:screenSize="small" android:screenDensity="hdpi" /> <!-- approximately 240 dpi -->
+        <screen android:screenSize="small" android:screenDensity="280" /> <!-- Workaround -->
+        <screen android:screenSize="small" android:screenDensity="xhdpi"/> <!-- approximately 320 dpi -->
+        <screen android:screenSize="small" android:screenDensity="360" /> <!-- Workaround -->
+        <screen android:screenSize="small" android:screenDensity="420" /> <!-- Workaround -->
+        <screen android:screenSize="small" android:screenDensity="480" /> <!-- Workaround -->
+        <screen android:screenSize="small" android:screenDensity="560" /> <!-- Workaround -->
+        <screen android:screenSize="small" android:screenDensity="640" /> <!-- Workaround -->
+        <!-- all normal size screens -->
+        <screen android:screenSize="normal" android:screenDensity="ldpi" /> <!-- approximately 120 dpi -->
+        <screen android:screenSize="normal" android:screenDensity="mdpi" /> <!-- approximately 160 dpi -->
+        <screen android:screenSize="normal" android:screenDensity="hdpi" /> <!-- approximately 240 dpi -->
+        <screen android:screenSize="normal" android:screenDensity="280" /> <!-- Workaround -->
+        <screen android:screenSize="normal" android:screenDensity="xhdpi"/> <!-- approximately 320 dpi -->
+        <screen android:screenSize="normal" android:screenDensity="360" /> <!-- Workaround -->
+        <screen android:screenSize="normal" android:screenDensity="420" /> <!-- Workaround -->
+        <screen android:screenSize="normal" android:screenDensity="480" /> <!-- Workaround -->
+        <screen android:screenSize="normal" android:screenDensity="560" /> <!-- Workaround -->
+        <screen android:screenSize="normal" android:screenDensity="640" /> <!-- Workaround -->
+    </compatible-screens>
+
     <!-- Webアクセス -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- ネットワーク通信の接続 可/不可 状態 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- BLUETOOTH -->
@@ -31,30 +58,37 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.NewToDoActivity">
+        <activity android:name=".Activity.LocationActivity"></activity>
+        <activity android:name=".Activity.Main3Activity">
+
+        </activity>
+        <activity android:name=".Activity.Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+
         <receiver
             android:name=".AlarmNotification"
-            android:process=":remote" >
-        </receiver>
+            android:process=":remote" />
+
+        <activity android:name=".Activity.NewToDoActivity" />
         <activity android:name=".Activity.AlarmActivity" />
         <activity android:name=".Activity.EditTodoActivity" />
         <activity android:name=".Activity.TodoDetailActivity" />
         <activity android:name=".Activity.TodoRegistActivity" />
-        <activity android:name=".Activity.TodoActivity">
-
-        </activity>
+        <activity android:name=".Activity.TodoActivity" />
         <activity android:name=".Activity.FragmentSampleActivity" />
         <activity android:name=".Activity.DaggerActivity" />
         <activity android:name=".Activity.FragmentbaseActivity" />
         <activity android:name=".Activity.Weather_2_Activity" />
-        <activity android:name=".Activity.WeatherActivity">
-
-        </activity>
+        <activity android:name=".Activity.WeatherActivity" />
         <activity android:name=".Activity.WebapiActivity" />
         <activity android:name=".Activity.PermissionActivity" />
         <activity android:name=".Activity.ProgressActivity" />

@@ -312,7 +312,9 @@ public class ApiManager {
             if (!icon_file.exists()) {
                 try {
                     FileOutputStream out = new FileOutputStream(AttachName);
-                    icon.compress(Bitmap.CompressFormat.PNG, 100, out);
+                    if (icon != null) {
+                        icon.compress(Bitmap.CompressFormat.PNG, 100, out);
+                    }
                     out.flush();
                     out.close();
                 } catch (IOException e) {
@@ -353,7 +355,6 @@ public class ApiManager {
             // 非同期処理開始
             OkHttpClient client = new OkHttpClient();
             Log.v("APIManager","URL = " + this.five_days_url);
-            //this.five_days_url = "https://news.google.com/rss/search?amp;hl=ja&amp;gl=JP&q=時事ニュース&hl=ja&gl=JP&ceid=JP:ja";
             Request request = new Request.Builder().url(this.five_days_url).build();
             Call call = client.newCall(request);
 
@@ -442,6 +443,10 @@ public class ApiManager {
                         e.printStackTrace();
                         fivedays_callback.onTaskCompleted("NG");
                     }
+
+
+
+
                 }else{
                     if (result != null) {
                         Log.v("APIManager", "getweather response.status = " + result.code());
@@ -480,7 +485,6 @@ public class ApiManager {
             // 非同期処理開始
             OkHttpClient client = new OkHttpClient();
             Log.v("APIManager","URL = " + this.news_url);
-            //this.five_days_url = "https://news.google.com/rss/search?amp;hl=ja&amp;gl=JP&q=時事ニュース&hl=ja&gl=JP&ceid=JP:ja";
             Request request = new Request.Builder().url(this.news_url).build();
             Call call = client.newCall(request);
 
@@ -499,16 +503,12 @@ public class ApiManager {
 
         @Override
         protected void onPostExecute(Response result) {
-
-
             if (result != null){
                 if (result.code() == 200) {
-                    String xml = new String();
+                    String xml = "";
 
                     try {
-                        if (result != null) {
-                            xml = result.body().string();
-                        }
+                        xml = result.body().string();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

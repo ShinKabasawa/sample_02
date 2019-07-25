@@ -1,10 +1,12 @@
 package haiming.co.jp.sample_02.Fragment;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
@@ -43,13 +45,17 @@ public class PagerFragment extends Fragment {
     private AlarmManager am;
     private PendingIntent pending;
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_pageritem, container, false);
 
         Bundle bundle = getArguments();
-        int index = bundle.getInt("INDEX");
+        int index = 0;
+        if (bundle != null) {
+            index = bundle.getInt("INDEX");
+        }
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.todo_rec);
 
@@ -66,7 +72,7 @@ public class PagerFragment extends Fragment {
         llm.setSmoothScrollbarEnabled(true);
 
         // 区切り線追加
-        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(Objects.requireNonNull(getContext()), DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(itemDecoration);
         recyclerView.setAdapter(adapter);
 
@@ -178,7 +184,6 @@ public class PagerFragment extends Fragment {
 
             // トーストで設定されたことをを表示
             Toast.makeText(getContext(), "alarm start", Toast.LENGTH_SHORT).show();
-
             Log.d("debug", "start");
         }
     }

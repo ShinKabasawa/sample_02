@@ -1,5 +1,6 @@
 package haiming.co.jp.sample_02.Activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -46,7 +47,7 @@ public class TodoRegistActivity extends AppCompatActivity {
             DaoTodo daoTodo = new DaoTodo(this,"",null,1);
             Calendar cal = Calendar.getInstance();
             Date date_ = cal.getTime();
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
             String date = simpleDateFormat.format(date_);
             Log.v("#$#$#$","DATE" + date);
             flg = daoTodo.add_todo(title,content,date,0);
