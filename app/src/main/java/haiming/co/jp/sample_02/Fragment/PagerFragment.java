@@ -162,41 +162,46 @@ public class PagerFragment extends Fragment {
         // Alarmの登録
         Log.v("setAlarm","currentTimeMills = " + System.currentTimeMillis());
 
-        //////////////////////////////////////////////////////////
-        Calendar calendar = Calendar.getInstance();             //
-        calendar.setTimeInMillis(System.currentTimeMillis());   //
-        //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////
+        //Calendar calendar = Calendar.getInstance();             //
+        //calendar.setTimeInMillis(System.currentTimeMillis());   //
+        ////////////////////////////////////////////////////////////
 
         Calendar calendar_2 = Calendar.getInstance();
         calendar_2.set(Integer.parseInt(date[0]),Integer.parseInt(date[1])-1,Integer.parseInt(date[2]),Integer.parseInt(date[3]),Integer.parseInt(date[4]));
 
-        /////////////////////////////////////////////////////////
-        // 日付確認                                            //
-        //for (int i = 0; i < date.length;i++){                //
-        //    Log.v("setAlarm","date[" + i + "] =" + date[i]); //
-        //}                                                    //
-        /////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        // 日付確認                                                                           //
+        //for (int i = 0; i < date.length;i++){                                               //
+        //    Log.v("setAlarm","date[" + i + "] =" + date[i]);                                //
+        //}                                                                                   //
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //Log.v("setAlarm","calender.getTimeMIlls（現在時刻）" + calendar.getTimeInMillis()); //
+        ////////////////////////////////////////////////////////////////////////////////////////
 
         Log.v("setAlarm","calender_2.getTimeMIlls（設定時刻）" + calendar_2.getTimeInMillis());
-        Log.v("setAlarm","calender.getTimeMIlls（現在時刻）" + calendar.getTimeInMillis());
 
         Intent intent = new Intent(getContext(), AlarmNotification.class);
         intent.putExtra("RequestCode", index);
 
         pending = PendingIntent.getBroadcast(getContext(), index, intent, 0);
 
-        // アラームをセットする
         am = (AlarmManager) Objects.requireNonNull(getActivity()).getSystemService(ALARM_SERVICE);
 
         if (am != null) {
-            //am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar_2.getTimeInMillis(), pending);
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+            // アラームセット                                                                               //
+            //am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar_2.getTimeInMillis(), pending); //
+            //////////////////////////////////////////////////////////////////////////////////////////////////
             am.setAlarmClock(new AlarmManager.AlarmClockInfo(calendar_2.getTimeInMillis(),null),  pending);
+
+            //////////////////////////////////////
+            // トーストで設定されたことをを表示 //
+            //////////////////////////////////////
             @SuppressLint("SimpleDateFormat") DateFormat datefomat = new SimpleDateFormat("yyyy年MM月dd日 HH時mm分");
             String date_ =  datefomat.format(calendar_2.getTime());
-            // トーストで設定されたことをを表示
             Toast.makeText(getContext(), date_+"に\nアラームをセットしました。", Toast.LENGTH_SHORT).show();
-            Log.d("debug", "start");
-
+            Log.d("debug", "start" + "設定日時 = " + date_);
         }
     }
 }

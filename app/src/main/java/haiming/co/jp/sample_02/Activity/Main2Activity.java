@@ -45,7 +45,6 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
     private String pref;
     private String city;
     private LocationManager locationManager;
-//    private GoogleApiClient googleApiClient;
     private GoogleApiClient _apiClient;
 
 
@@ -93,16 +92,17 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
                 pref = (String) Common.loadPreference(getApplicationContext(), "自宅pref", 1);
                 city = (String) Common.loadPreference(getApplicationContext(), "自宅city", 1);
 
-//                int cnt = 0;
-//                ArrayList<String> arrayList = new ArrayList<>();
-//                for (int i = 0 ; i< pref_name_array.size(); i++){
-//                    if (pref.equals(pref_name_array.get(i))){
-//                        cnt = i;
-//                        break;
-//                    }
-//                }
-//
-//                spinner_2.setSelection(cnt);
+                //////////////////////////////////////////////////////
+                //int cnt = 0;                                      //
+                //ArrayList<String> arrayList = new ArrayList<>();  //
+                //for (int i = 0 ; i< pref_name_array.size(); i++){ //
+                //    if (pref.equals(pref_name_array.get(i))){     //
+                //        cnt = i;                                  //
+                //        break;                                    //
+                //    }                                             //
+                //}                                                 //
+                //spinner_2.setSelection(cnt);                      //
+                //////////////////////////////////////////////////////
 
             }
 
@@ -169,31 +169,6 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
     }
 
     private void enableLoc() {
-
-//        if (googleApiClient == null) {
-//            googleApiClient = new GoogleApiClient.Builder(Main2Activity.this)
-//                    .addApi(LocationServices.API)
-//                    .addConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
-//                        @Override
-//                        public void onConnected(Bundle bundle) {
-//                            Log.v("########","onConnected");
-//                        }
-//
-//                        @Override
-//                        public void onConnectionSuspended(int i) {
-//                            Log.v("######","onConnectionSuspended");
-//                            googleApiClient.connect();
-//                        }
-//                    })
-//                    .addOnConnectionFailedListener(new GoogleApiClient.OnConnectionFailedListener() {
-//                        @Override
-//                        public void onConnectionFailed(ConnectionResult connectionResult) {
-//
-//                            Log.d("Location error", "Location error " + connectionResult.getErrorCode());
-//                        }
-//                    }).build();
-//            googleApiClient.connect();
-//        }
         LocationRequest locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         locationRequest.setInterval(30 * 1000);
@@ -269,7 +244,8 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
 
                 FusedLocationProviderApi fused = LocationServices.FusedLocationApi;
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+                {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions
                     // here to request the missing permissions, and then overriding
@@ -284,7 +260,6 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
                 LocationListener _listener = new LocationListener() {
                     @Override
                     public void onLocationChanged(Location location) {
-                        //...
 
                         String msg = "Lat=" + location.getLatitude() + "Lng=" + location.getLongitude();
                         Log.d("onLocationChanged", msg);
@@ -310,8 +285,8 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
                 enableLoc();
 
                 Location location = fused.getLastLocation(_apiClient);
-//                //enableLoc();
-//
+                //enableLoc();
+
                 Log.v("########","lat = "+ location.getLatitude());
                 Log.v("########","lon = "+ location.getLongitude());
 

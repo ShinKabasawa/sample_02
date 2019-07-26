@@ -43,7 +43,10 @@ public class TodoListAdapater extends RecyclerView.Adapter<TodoViewHolder> {
     public void onBindViewHolder(@NonNull final TodoViewHolder todoViewHolder, @SuppressLint("RecyclerView") final int i) {
         todoViewHolder.title_view.setText(list.get(i).todo_title);
         todoViewHolder.content_view.setText(list.get(i).todo_content);
-
+        //////////////////////////////////////////////////////////////////////////
+        //String ss = list.get(i).todo_title + "\n" + list.get(i).todo_content; //
+        //todoViewHolder.checkBox.setText(ss);                                  //
+        //////////////////////////////////////////////////////////////////////////
         if (list.get(i).fin_flg == 1){
             todoViewHolder.checkBox.setChecked(true);
         }else{
