@@ -43,11 +43,9 @@ public class AlarmNotification extends BroadcastReceiver {
         // DaoTodo daoTodo = new DaoTodo(context,"",null,1); //
         ///////////////////////////////////////////////////////
 
-        // メッセージ　+ 11:22:331
         String message = "時間になりました。 " + cTime ;
 
         NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         // Notification　Channel 設定
