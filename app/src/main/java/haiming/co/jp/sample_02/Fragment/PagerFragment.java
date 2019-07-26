@@ -189,13 +189,14 @@ public class PagerFragment extends Fragment {
         am = (AlarmManager) Objects.requireNonNull(getActivity()).getSystemService(ALARM_SERVICE);
 
         if (am != null) {
-            am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar_2.getTimeInMillis(), pending);
-
+            //am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar_2.getTimeInMillis(), pending);
+            am.setAlarmClock(new AlarmManager.AlarmClockInfo(calendar_2.getTimeInMillis(),null),  pending);
             @SuppressLint("SimpleDateFormat") DateFormat datefomat = new SimpleDateFormat("yyyy年MM月dd日 HH時mm分");
             String date_ =  datefomat.format(calendar_2.getTime());
             // トーストで設定されたことをを表示
             Toast.makeText(getContext(), date_+"に\nアラームをセットしました。", Toast.LENGTH_SHORT).show();
             Log.d("debug", "start");
+
         }
     }
 }
