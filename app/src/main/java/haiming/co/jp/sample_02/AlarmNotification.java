@@ -35,7 +35,7 @@ public class AlarmNotification extends BroadcastReceiver {
         String title = context.getString(R.string.app_name);
 
         long currentTime = System.currentTimeMillis();
-        SimpleDateFormat dataFormat = new SimpleDateFormat("HH:mm:ss", Locale.JAPAN);
+        SimpleDateFormat dataFormat = new SimpleDateFormat("HH:mm", Locale.JAPAN);
         String cTime = dataFormat.format(currentTime);
 
         ///////////////////////////////////////////////////////
