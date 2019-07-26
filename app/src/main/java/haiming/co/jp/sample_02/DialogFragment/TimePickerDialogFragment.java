@@ -5,7 +5,6 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
@@ -39,13 +38,13 @@ public class TimePickerDialogFragment  extends DialogFragment implements TimePic
         int min =  calendar.get(Calendar.MINUTE);
         int hour = calendar.get(Calendar.HOUR);
 
-        if (hourOfDay < hour){
-            Log.v("TimePickerDialog","現在時刻より大きい(時)");
-            return;
-        }else if(minute < min){
-            Log.v("TimePickerDialog","現在時刻より大きい（分）");
-            return;
-        }
+//        if (hourOfDay < hour){
+//            Log.v("TimePickerDialog","現在時刻より大きい(時)");
+//            return;
+//        }else if(minute < min){
+//            Log.v("TimePickerDialog","現在時刻より大きい（分）");
+//            return;
+//        }
 
         timeDecisionCallback.DecidionTime(String.valueOf(hourOfDay),String.valueOf(minute));
     }

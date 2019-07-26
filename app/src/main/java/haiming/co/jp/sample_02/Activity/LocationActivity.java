@@ -32,6 +32,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import java.text.DateFormat;
 import java.util.Date;
+
+import haiming.co.jp.sample_02.Interface.Location_Callback;
 import haiming.co.jp.sample_02.R;
 
 /**
@@ -58,6 +60,8 @@ public class LocationActivity extends AppCompatActivity {
     private int priority = 0;
     private TextView textView;
     private String textLog;
+    private Location_Callback callback;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +69,19 @@ public class LocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        fusedLocationClient =
-                LocationServices.getFusedLocationProviderClient(this);
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         settingsClient = LocationServices.getSettingsClient(this);
 
         priority = 0;
+
+        callback = new Location_Callback() {
+            @Override
+            public void location_call(String lat, String lon) {
+                Log.v("location_call","lat = " + lat);
+                Log.v("location_call","lon = " + lon);
+            }
+        };
+
 
         createLocationCallback();
         createLocationRequest();
@@ -120,6 +132,8 @@ public class LocationActivity extends AppCompatActivity {
             String fusedName[] = {"Latitude", "Longitude", "Accuracy", "Altitude", "Speed", "Bearing"};
 
             double fusedData[] = {location.getLatitude(), location.getLongitude(), location.getAccuracy(), location.getAltitude(), location.getSpeed(), location.getBearing()};
+
+            callback.location_call(String.valueOf(location.getLatitude()),String.valueOf(location.getLongitude()));
 
             StringBuilder strBuf = new StringBuilder("---------- UpdateLocation ---------- \n");
 

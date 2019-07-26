@@ -1,5 +1,6 @@
 package haiming.co.jp.sample_02.Activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -132,7 +133,7 @@ public class WeatherActivity extends AppCompatActivity {
                                 Log.v("WeatherActivity", "arralists = " + arrayLists.size());
 
                                 Calendar calendar = Calendar.getInstance();
-                                SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                                @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                                 formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
 
                                 Log.v("WeatherActivity", "arralists = " + formatter.format(calendar.getTime()).toUpperCase());

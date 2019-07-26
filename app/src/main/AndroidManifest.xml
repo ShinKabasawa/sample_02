@@ -63,11 +63,7 @@
 
         </activity>
         <activity android:name=".Activity.Main2Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -78,7 +74,12 @@
             android:name=".AlarmNotification"
             android:process=":remote" />
 
-        <activity android:name=".Activity.NewToDoActivity" />
+        <activity android:name=".Activity.NewToDoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Activity.AlarmActivity" />
         <activity android:name=".Activity.EditTodoActivity" />
         <activity android:name=".Activity.TodoDetailActivity" />
