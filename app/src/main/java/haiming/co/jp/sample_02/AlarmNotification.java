@@ -17,6 +17,8 @@ import android.util.Log;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+import haiming.co.jp.sample_02.Dao.DaoTodo;
+
 
 public class AlarmNotification extends BroadcastReceiver {
 
@@ -40,10 +42,16 @@ public class AlarmNotification extends BroadcastReceiver {
 
         ///////////////////////////////////////////////////////
         // DBからTodoのTitle取得                             //
-        // DaoTodo daoTodo = new DaoTodo(context,"",null,1); //
         ///////////////////////////////////////////////////////
+        DaoTodo daoTodo = new DaoTodo(context,"",null,1);
 
-        String message = "時間になりました。 " + cTime ;
+        String msg = "";
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(msg);
+        sb.append("時間になりました。");
+
+        String message = sb.toString();
 
         NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
