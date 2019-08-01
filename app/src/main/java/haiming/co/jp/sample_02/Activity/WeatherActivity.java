@@ -136,6 +136,12 @@ public class WeatherActivity extends AppCompatActivity {
                                 @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                                 formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
 
+                                //BigDecimal b = new BigDecimal("1");
+                                //b.add(BigDecimal.valueOf(1));
+                                //b.add(BigDecimal.valueOf(2));
+
+                                //Log.v("TAG","b = " + b);
+
                                 Log.v("WeatherActivity", "arralists = " + formatter.format(calendar.getTime()).toUpperCase());
                                 Log.v("WeatherActivity", "arralists = " + calendar.get(Calendar.YEAR) + "/" + calendar.get(Calendar.MONTH));
 

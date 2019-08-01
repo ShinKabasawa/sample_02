@@ -72,6 +72,33 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
         spinner_2.setAdapter(adapter_2);
     }
 
+    private AdapterView.OnItemSelectedListener adapter = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            place = (String) spinner_1.getSelectedItem();
+
+            Common.loadPreference(getApplicationContext(), place, 1);
+            pref = (String) Common.loadPreference(getApplicationContext(), "自宅pref", 1);
+            city = (String) Common.loadPreference(getApplicationContext(), "自宅city", 1);
+
+            //////////////////////////////////////////////////////
+            //int cnt = 0;                                      //
+            //ArrayList<String> arrayList = new ArrayList<>();  //
+            //for (int i = 0 ; i< pref_name_array.size(); i++){ //
+            //    if (pref.equals(pref_name_array.get(i))){     //
+            //        cnt = i;                                  //
+            //        break;                                    //
+            //    }                                             //
+            //}                                                 //
+            //spinner_2.setSelection(cnt);                      //
+            //////////////////////////////////////////////////////
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    };
 
     /**
      * 初期化
@@ -84,10 +111,13 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
         spinner_2 = (Spinner) findViewById(R.id.spinner_2);
         spinner_3 = (Spinner) findViewById(R.id.spinner_3);
 
+        //spinner_1.setOnItemSelectedListener(adapter);
+
         spinner_1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 place = (String) spinner_1.getSelectedItem();
+
                 Common.loadPreference(getApplicationContext(), place, 1);
                 pref = (String) Common.loadPreference(getApplicationContext(), "自宅pref", 1);
                 city = (String) Common.loadPreference(getApplicationContext(), "自宅city", 1);
