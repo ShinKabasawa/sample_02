@@ -30,6 +30,9 @@ public class AlarmNotification extends BroadcastReceiver {
 
         int requestCode = intent.getIntExtra("RequestCode",0);
 
+        Log.v("RequestCode","RequestCode = " + requestCode);
+
+
         PendingIntent pendingIntent = PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         String channelId = "default";
