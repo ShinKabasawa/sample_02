@@ -35,6 +35,7 @@ public class AlarmNotification extends BroadcastReceiver {
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+
         String channelId = "default";
         // app name
         String title = context.getString(R.string.app_name);

@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 
 import haiming.co.jp.sample_02.Adapter.PagerAdapter;
+import haiming.co.jp.sample_02.Dao.DaoCreate;
 import haiming.co.jp.sample_02.R;
 
 public class NewToDoActivity extends FragmentActivity implements ViewPager.OnPageChangeListener {
@@ -19,6 +20,10 @@ public class NewToDoActivity extends FragmentActivity implements ViewPager.OnPag
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_to_do);
+
+        DaoCreate daoCreate = new DaoCreate(this);
+        daoCreate.onCreateTable();
+
         //初期データ
         ArrayList<Integer> items = new ArrayList<Integer>();
         items.add(0);

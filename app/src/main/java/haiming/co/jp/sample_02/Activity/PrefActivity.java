@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,6 +33,18 @@ public class PrefActivity extends AppCompatActivity {
         super.onStart();
         editText = (EditText)findViewById(R.id.res_edit);
         textView = (TextView)findViewById(R.id.result_view);
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent e) {
+
+        // DOWNとUPが取得できるのでログの2重表示防止のためif
+        if (e.getAction() == KeyEvent.ACTION_DOWN) {
+            //キーコード表示
+            Log.d("KeyCode","KeyCode:"+ e.getKeyCode());
+        }
+
+        return super.dispatchKeyEvent(e);
     }
 
     // 登録クリック処理
@@ -120,4 +134,8 @@ public class PrefActivity extends AppCompatActivity {
         }
         return obj;
     }
+
+
+
+
 }

@@ -65,8 +65,11 @@ public class PagerFragment extends Fragment {
         List<TodoData> arrayList = new ArrayList<>();
         DaoTodo daoTodo = new DaoTodo(Objects.requireNonNull(getActivity()).getApplicationContext(), "", null, 1);
 
-        arrayList = daoTodo.sel_all_todo();
-
+        try {
+            arrayList = daoTodo.sel_all_todo();
+        }catch (Exception e){
+            arrayList = new ArrayList<>();
+        }
         RecyclerView.Adapter adapter = new TodoListAdapater(arrayList, getActivity());
 
         LinearLayoutManager llm = new LinearLayoutManager(getContext());

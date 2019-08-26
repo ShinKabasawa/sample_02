@@ -44,6 +44,7 @@ public class DaoTodo extends SQLiteOpenHelper {
     public boolean add_todo(String title, String content, String date, int check_val){
         boolean res = false;
         SQLiteDatabase db = this.getWritableDatabase();
+
         try{
             SQLiteStatement stmt = db.compileStatement(inserat);
             stmt.bindString(1, title);
